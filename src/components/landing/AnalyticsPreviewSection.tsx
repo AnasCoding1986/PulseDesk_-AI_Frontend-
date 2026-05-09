@@ -55,15 +55,15 @@ export const AnalyticsPreviewSection: React.FC = () => {
             <p className="text-slate-400 text-xl font-light leading-relaxed mb-10 max-w-lg">
               Revenue trends, project health scores, team velocity, and client ROI — all visualized in real-time dashboards that make decisions obvious.
             </p>
-            <div className="space-y-4">
+            <div className="grid grid-cols-2 gap-4">
               {[
-                { label: 'Revenue up 14.2% month-over-month', color: 'text-emerald-400' },
-                { label: 'Automatic project health scoring 0-100', color: 'text-blue-400' },
-                { label: 'Team workload balance recommendations', color: 'text-purple-400' },
+                { label: 'Revenue Growth', val: '+14.2%', sub: 'vs last month' },
+                { label: 'Health Score', val: '86/100', sub: 'Team average' },
               ].map((item) => (
-                <div key={item.label} className="flex items-center gap-3">
-                  <div className={`w-1.5 h-1.5 rounded-full bg-current ${item.color}`} />
-                  <span className="text-slate-300 text-sm">{item.label}</span>
+                <div key={item.label} className="glass-premium border border-white/[0.05] rounded-2xl p-5">
+                  <div className="text-[10px] text-slate-500 uppercase tracking-wider mb-1">{item.label}</div>
+                  <div className="text-xl font-bold text-white mb-0.5">{item.val}</div>
+                  <div className="text-[10px] text-emerald-400 font-medium">{item.sub}</div>
                 </div>
               ))}
             </div>

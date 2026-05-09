@@ -38,7 +38,7 @@ export const FAQSection: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.08, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-              className="glass-premium border border-white/[0.08] rounded-2xl overflow-hidden hover:border-white/10 transition-colors"
+              className="glass-premium border border-white/[0.08] rounded-2xl overflow-hidden hover:border-white/10 transition-colors internal-glow"
             >
               <button
                 className="w-full px-6 py-6 flex items-center justify-between gap-4 text-left hover:bg-white/[0.02] transition-colors"

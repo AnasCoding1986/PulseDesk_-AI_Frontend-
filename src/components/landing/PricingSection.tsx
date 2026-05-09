@@ -101,10 +101,10 @@ export const PricingSection: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.15, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              className={`relative glass-premium border ${plan.border} rounded-[2rem] p-8 sm:p-10 flex flex-col ${
+              className={`relative glass-premium border ${plan.border} rounded-[2.5rem] p-8 sm:p-12 flex flex-col internal-glow ${
                 plan.popular 
-                  ? 'ring-2 ring-blue-500/50 shadow-[0_0_80px_rgba(59,130,246,0.2)] lg:scale-105 z-10 bg-[#0B1221]' 
-                  : 'z-0 opacity-90 hover:opacity-100 transition-opacity'
+                  ? 'ring-2 ring-blue-500/50 shadow-[0_32px_80px_-16px_rgba(59,130,246,0.25)] lg:scale-105 z-10 bg-[#0B1221]' 
+                  : 'z-0 opacity-90 hover:opacity-100 transition-all duration-500'
               }`}
             >
               {plan.popular && (

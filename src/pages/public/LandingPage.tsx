@@ -12,11 +12,14 @@ const LandingPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-[#070B14]">
       <LandingNavbar />
-      <main className="relative flex flex-col items-center overflow-hidden">
-        {/* Cinematic glow background for the entire landing page hero area */}
-        <div className="cinematic-glow"></div>
+      <main className="relative flex flex-col items-center overflow-hidden w-full">
+        {/* Global dot grid to connect all sections visually */}
+        <div className="fixed inset-0 dot-grid opacity-[0.15] pointer-events-none z-0" />
         
-        <div className="w-full flex flex-col items-center">
+        {/* Cinematic glow background for the entire landing page hero area */}
+        <div className="cinematic-glow opacity-80 mix-blend-screen pointer-events-none z-0"></div>
+        
+        <div className="w-full flex flex-col items-center relative z-10">
           <HeroSection />
           <FeaturesSection />
           <AnalyticsPreviewSection />

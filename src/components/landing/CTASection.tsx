@@ -16,10 +16,10 @@ export const CTASection: React.FC = () => {
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="relative glass-premium border border-white/[0.08] rounded-[2.5rem] p-16 sm:p-20 text-center overflow-hidden shadow-2xl"
         >
-          {/* Background orbs inside card */}
           <div className="orb w-96 h-96 bg-blue-600/20 -top-20 -left-20" />
           <div className="orb w-96 h-96 bg-purple-600/20 -bottom-20 -right-20" />
-          <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-overlay"></div>
+          <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-30 mix-blend-overlay pointer-events-none"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-blue-500/10 to-transparent pointer-events-none" />
 
           <div className="relative z-10 max-w-2xl mx-auto">
             <div className="w-20 h-20 rounded-3xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center mx-auto mb-8 shadow-[0_0_50px_rgba(59,130,246,0.5)]">

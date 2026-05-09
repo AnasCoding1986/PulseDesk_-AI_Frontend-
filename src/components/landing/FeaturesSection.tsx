@@ -150,7 +150,7 @@ const SpotlightCard: React.FC<{ feature: typeof features[0]; index: number }> = 
       viewport={{ once: true, margin: "-50px" }}
       variants={fadeUp}
       whileHover={{ y: -4, transition: { duration: 0.2, ease: "easeOut" } }}
-      className={`relative glass-premium border border-white/[0.08] rounded-3xl p-8 sm:p-10 cursor-default overflow-hidden spotlight-wrapper ${feature.className}`}
+      className={`relative glass-premium border border-white/[0.08] rounded-3xl p-8 sm:p-10 cursor-default overflow-hidden spotlight-wrapper h-full flex flex-col min-h-[260px] ${feature.className}`}
     >
       <div
         className="pointer-events-none absolute -inset-px rounded-3xl opacity-0 transition duration-300"
@@ -197,7 +197,7 @@ export const FeaturesSection: React.FC = () => {
         </motion.div>
 
         {/* Bento grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" style={{ gridAutoRows: 'minmax(280px, auto)' }}>
           {features.map((feature, i) => (
             <SpotlightCard key={feature.title} feature={feature} index={i} />
           ))}

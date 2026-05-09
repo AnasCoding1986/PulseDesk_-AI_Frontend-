@@ -114,14 +114,14 @@ export const AIInsightsSection: React.FC = () => {
             </p>
             <div className="grid grid-cols-2 gap-4">
               {[
-                { stat: '3.4×', label: 'faster risk detection' },
-                { stat: '28%', label: 'fewer missed deadlines' },
-                { stat: '92%', label: 'insight accuracy' },
-                { stat: '40+', label: 'signals monitored' },
+                { stat: '3.4×', label: 'faster risk detection', color: 'from-blue-500 to-cyan-400' },
+                { stat: '28%', label: 'fewer missed deadlines', color: 'from-purple-500 to-pink-500' },
+                { stat: '92%', label: 'insight accuracy', color: 'from-emerald-500 to-teal-400' },
+                { stat: '40+', label: 'signals monitored', color: 'from-blue-500 to-indigo-500' },
               ].map((item) => (
-                <div key={item.label} className="glass-premium border border-white/[0.08] rounded-2xl p-6">
-                  <div className="text-3xl font-display font-extrabold gradient-text-blue mb-2">{item.stat}</div>
-                  <div className="text-sm text-slate-400 font-medium">{item.label}</div>
+                <div key={item.label} className="glass-premium border border-white/[0.08] rounded-3xl p-6 group hover:border-white/20 transition-all duration-500">
+                  <div className={`text-3xl font-display font-extrabold bg-gradient-to-br ${item.color} bg-clip-text text-transparent mb-2`}>{item.stat}</div>
+                  <div className="text-sm text-slate-400 font-medium tracking-tight">{item.label}</div>
                 </div>
               ))}
             </div>

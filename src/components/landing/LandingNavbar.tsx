@@ -27,13 +27,17 @@ export const LandingNavbar: React.FC = () => {
       <motion.nav
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.6, ease: 'easeOut' }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          scrolled ? 'glass-strong border-b border-white/[0.06]' : 'bg-transparent'
+        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+          scrolled ? 'pt-4' : 'pt-0'
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
+        <div className={`mx-auto transition-all duration-500 ${
+          scrolled 
+            ? 'container-strict max-w-4xl glass-premium rounded-full border border-white/[0.08] shadow-[0_0_40px_rgba(0,0,0,0.3)]' 
+            : 'max-w-7xl px-4 sm:px-6 lg:px-8 bg-transparent border-b border-white/[0.03]'
+        }`}>
+          <div className={`flex items-center justify-between transition-all duration-500 ${scrolled ? 'h-14 px-6' : 'h-20'}`}>
             {/* Logo */}
             <Link to="/" className="flex items-center gap-2.5 group">
               <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center shadow-[0_0_20px_rgba(59,130,246,0.4)]">

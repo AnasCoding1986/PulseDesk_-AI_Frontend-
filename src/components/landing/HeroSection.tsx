@@ -111,7 +111,7 @@ export const HeroSection: React.FC = () => {
   const navigate = useNavigate();
 
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center pt-24 pb-16 px-4 overflow-hidden">
+    <section className="relative pt-32 pb-24 px-4 overflow-hidden">
       {/* Background orbs */}
       <div className="orb w-[600px] h-[600px] bg-blue-600/10 -top-40 -left-40" />
       <div className="orb w-[500px] h-[500px] bg-purple-600/10 -top-20 -right-40" />
@@ -182,14 +182,17 @@ export const HeroSection: React.FC = () => {
         {/* Dashboard Preview with 3D Entrance */}
         <div style={{ perspective: '1200px' }} className="mt-16 w-full max-w-6xl mx-auto">
           <motion.div
-            initial={{ opacity: 0, y: 120, rotateX: 25, scale: 0.9 }}
-            animate={{ opacity: 1, y: 0, rotateX: 0, scale: 1 }}
+            initial={{ opacity: 0, y: 120, rotateX: 30, scale: 0.9 }}
+            animate={{ opacity: 1, y: 0, rotateX: 4, scale: 1 }}
             transition={{ delay: 0.5, duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-            className="relative"
+            className="relative shadow-2xl"
           >
-            <div className="animate-float">
+            <div className="animate-float relative">
+              {/* Immersive glow specifically for the dashboard */}
+              <div className="absolute inset-0 bg-blue-500/20 blur-[120px] -z-10 rounded-full scale-90" />
+              
               {/* Added premium glass wrapper around the dashboard */}
-              <div className="p-2 rounded-[24px] bg-white/[0.02] border border-white/[0.05] shadow-2xl">
+              <div className="p-3 rounded-[32px] bg-white/[0.03] border border-white/[0.08] shadow-[0_0_100px_rgba(0,0,0,0.4)] internal-glow">
                 <DashboardPreview />
               </div>
             </div>
@@ -202,9 +205,9 @@ export const HeroSection: React.FC = () => {
                 animate={{ opacity: 1, x: 0, y: 0 }}
                 transition={{ delay: 0.9 + i * 0.15, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                 className={`absolute glass-premium rounded-2xl px-5 py-4 hidden lg:flex items-center gap-4 ${
-                  i === 0 ? '-left-20 top-20' :
-                  i === 1 ? '-right-20 top-40' :
-                  '-left-16 bottom-32'
+                  i === 0 ? '-left-12 top-20' :
+                  i === 1 ? '-right-12 top-32' :
+                  '-left-8 bottom-24'
                 }`}
               >
                 <div className={`w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center ${stat.color}`}>
