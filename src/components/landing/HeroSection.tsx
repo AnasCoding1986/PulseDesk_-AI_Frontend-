@@ -133,10 +133,10 @@ export const HeroSection: React.FC = () => {
 
         {/* Headline */}
         <motion.h1
-          initial={{ opacity: 0, y: 24 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2, duration: 0.7 }}
-          className="text-5xl sm:text-6xl lg:text-7xl font-display font-extrabold tracking-tight leading-[1.08] mb-6"
+          transition={{ delay: 0.2, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          className="text-6xl sm:text-7xl lg:text-8xl font-display font-extrabold tracking-tighter leading-[1.05] mb-6"
         >
           <span className="gradient-text">One command center</span>
           <br />
@@ -147,8 +147,8 @@ export const HeroSection: React.FC = () => {
         <motion.p
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3, duration: 0.7 }}
-          className="text-lg sm:text-xl text-slate-400 max-w-2xl mx-auto mb-10 leading-relaxed"
+          transition={{ delay: 0.3, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          className="text-lg sm:text-xl lg:text-2xl text-slate-400 max-w-3xl mx-auto mb-10 leading-relaxed font-light"
         >
           PulseDesk AI unifies project health, team performance, client management, and AI insights — so your team ships faster with fewer tools.
         </motion.p>
@@ -179,39 +179,46 @@ export const HeroSection: React.FC = () => {
           </button>
         </motion.div>
 
-        {/* Dashboard Preview */}
-        <motion.div
-          initial={{ opacity: 0, y: 60, scale: 0.95 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{ delay: 0.5, duration: 0.9, ease: 'easeOut' }}
-          className="animate-float relative"
-        >
-          <DashboardPreview />
+        {/* Dashboard Preview with 3D Entrance */}
+        <div style={{ perspective: '1200px' }} className="mt-16 w-full max-w-6xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 120, rotateX: 25, scale: 0.9 }}
+            animate={{ opacity: 1, y: 0, rotateX: 0, scale: 1 }}
+            transition={{ delay: 0.5, duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+            className="relative"
+          >
+            <div className="animate-float">
+              {/* Added premium glass wrapper around the dashboard */}
+              <div className="p-2 rounded-[24px] bg-white/[0.02] border border-white/[0.05] shadow-2xl">
+                <DashboardPreview />
+              </div>
+            </div>
 
-          {/* Floating stat chips */}
-          {floatingStats.map((stat, i) => (
-            <motion.div
-              key={stat.label}
-              initial={{ opacity: 0, x: i % 2 === 0 ? -30 : 30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.8 + i * 0.15, duration: 0.6 }}
-              className={`absolute glass border border-white/10 rounded-2xl px-4 py-3 hidden lg:flex items-center gap-3 ${
-                i === 0 ? '-left-16 top-16' :
-                i === 1 ? '-right-16 top-32' :
-                '-left-12 bottom-24'
-              }`}
-            >
-              <div className={`w-8 h-8 rounded-xl bg-white/5 flex items-center justify-center ${stat.color}`}>
-                <stat.icon size={16} />
-              </div>
-              <div>
-                <div className="text-[10px] text-slate-500">{stat.label}</div>
-                <div className="text-sm font-bold text-white">{stat.value}</div>
-                <div className={`text-[10px] font-medium ${stat.color}`}>{stat.change}</div>
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
+            {/* Floating stat chips */}
+            {floatingStats.map((stat, i) => (
+              <motion.div
+                key={stat.label}
+                initial={{ opacity: 0, x: i % 2 === 0 ? -40 : 40, y: 20 }}
+                animate={{ opacity: 1, x: 0, y: 0 }}
+                transition={{ delay: 0.9 + i * 0.15, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                className={`absolute glass-premium rounded-2xl px-5 py-4 hidden lg:flex items-center gap-4 ${
+                  i === 0 ? '-left-20 top-20' :
+                  i === 1 ? '-right-20 top-40' :
+                  '-left-16 bottom-32'
+                }`}
+              >
+                <div className={`w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center ${stat.color}`}>
+                  <stat.icon size={20} />
+                </div>
+                <div>
+                  <div className="text-[11px] text-slate-400 font-medium tracking-wide uppercase mb-0.5">{stat.label}</div>
+                  <div className="text-lg font-bold text-white">{stat.value}</div>
+                  <div className={`text-[11px] font-semibold ${stat.color}`}>{stat.change}</div>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
       </div>
     </section>
   );
