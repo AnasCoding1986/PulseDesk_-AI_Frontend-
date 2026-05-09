@@ -79,67 +79,73 @@ export const PricingSection: React.FC = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          className="text-center mb-20"
         >
-          <span className="inline-block text-xs font-semibold text-blue-400 tracking-widest uppercase mb-4 px-3 py-1.5 glass border border-blue-500/20 rounded-full">
+          <span className="inline-block text-xs font-semibold text-blue-400 tracking-widest uppercase mb-6 px-4 py-2 glass-premium border border-blue-500/20 rounded-full shadow-[0_0_20px_rgba(59,130,246,0.15)]">
             Pricing
           </span>
-          <h2 className="text-4xl sm:text-5xl font-display font-bold gradient-text mb-4">
+          <h2 className="text-5xl sm:text-6xl font-display font-extrabold gradient-text mb-6 tracking-tight">
             Simple, transparent pricing
           </h2>
-          <p className="text-slate-400 max-w-xl mx-auto text-lg">
+          <p className="text-slate-400 max-w-xl mx-auto text-xl font-light">
             Start free. Scale as your team grows. No hidden fees, no surprises.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid lg:grid-cols-3 gap-8 items-center">
           {plans.map((plan, i) => (
             <motion.div
               key={plan.name}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.1, duration: 0.5 }}
-              className={`relative glass border ${plan.border} rounded-2xl p-7 flex flex-col ${
-                plan.popular ? 'ring-1 ring-blue-500/40 shadow-[0_0_40px_rgba(59,130,246,0.12)]' : ''
+              transition={{ delay: i * 0.15, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+              className={`relative glass-premium border ${plan.border} rounded-[2rem] p-8 sm:p-10 flex flex-col ${
+                plan.popular 
+                  ? 'ring-2 ring-blue-500/50 shadow-[0_0_80px_rgba(59,130,246,0.2)] lg:scale-105 z-10 bg-[#0B1221]' 
+                  : 'z-0 opacity-90 hover:opacity-100 transition-opacity'
               }`}
             >
               {plan.popular && (
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                  <span className="bg-gradient-to-r from-blue-500 to-purple-600 text-white text-xs font-bold px-4 py-1 rounded-full">
-                    Most Popular
+                <div className="absolute -top-4 left-1/2 -translate-x-1/2 shadow-lg">
+                  <span className="bg-gradient-to-r from-blue-500 to-purple-600 text-white text-xs font-bold px-5 py-1.5 rounded-full tracking-wide">
+                    MOST POPULAR
                   </span>
                 </div>
               )}
 
-              <div className={`w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center mb-4 ${plan.color}`}>
-                <plan.icon size={20} />
+              <div className={`w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center mb-6 shadow-inner ${plan.color}`}>
+                <plan.icon size={24} />
               </div>
 
-              <h3 className="text-lg font-bold text-white mb-1">{plan.name}</h3>
-              <p className="text-slate-400 text-sm mb-5">{plan.description}</p>
+              <h3 className="text-2xl font-bold text-white mb-2 tracking-tight">{plan.name}</h3>
+              <p className="text-slate-400 text-sm mb-8 leading-relaxed font-light">{plan.description}</p>
 
-              <div className="flex items-end gap-1 mb-6">
-                <span className="text-4xl font-display font-extrabold text-white">
+              <div className="flex items-end gap-1 mb-8">
+                <span className="text-5xl font-display font-extrabold text-white tracking-tighter">
                   {plan.price === 0 ? 'Free' : `$${plan.price}`}
                 </span>
                 {plan.price > 0 && (
-                  <span className="text-slate-500 text-sm mb-1">{plan.period}</span>
+                  <span className="text-slate-500 text-base mb-1.5 font-medium">{plan.period}</span>
                 )}
               </div>
 
-              <ul className="space-y-3 mb-8 flex-1">
+              <ul className="space-y-4 mb-10 flex-1">
                 {plan.features.map((feat) => (
                   <li key={feat} className="flex items-center gap-3 text-sm text-slate-300">
-                    <Check size={14} className="text-emerald-400 flex-shrink-0" />
-                    {feat}
+                    <div className="w-5 h-5 rounded-full bg-emerald-500/10 flex items-center justify-center flex-shrink-0">
+                      <Check size={12} className="text-emerald-400" />
+                    </div>
+                    <span>{feat}</span>
                   </li>
                 ))}
               </ul>
 
               <Button
                 variant={plan.variant}
-                className="w-full justify-center"
+                size="lg"
+                className="w-full justify-center py-6 text-base"
                 onClick={() => navigate('/register')}
               >
                 {plan.cta}

@@ -13,36 +13,38 @@ export const CTASection: React.FC = () => {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
-          className="relative glass border border-white/[0.08] rounded-3xl p-12 text-center overflow-hidden"
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          className="relative glass-premium border border-white/[0.08] rounded-[2.5rem] p-16 sm:p-20 text-center overflow-hidden shadow-2xl"
         >
           {/* Background orbs inside card */}
-          <div className="orb w-80 h-80 bg-blue-600/15 -top-20 -left-20" />
-          <div className="orb w-80 h-80 bg-purple-600/15 -bottom-20 -right-20" />
+          <div className="orb w-96 h-96 bg-blue-600/20 -top-20 -left-20" />
+          <div className="orb w-96 h-96 bg-purple-600/20 -bottom-20 -right-20" />
+          <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-overlay"></div>
 
-          <div className="relative z-10">
-            <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center mx-auto mb-6 shadow-[0_0_30px_rgba(59,130,246,0.4)]">
-              <Zap size={26} className="text-white" />
+          <div className="relative z-10 max-w-2xl mx-auto">
+            <div className="w-20 h-20 rounded-3xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center mx-auto mb-8 shadow-[0_0_50px_rgba(59,130,246,0.5)]">
+              <Zap size={36} className="text-white" />
             </div>
-            <h2 className="text-4xl sm:text-5xl font-display font-bold gradient-text mb-4">
-              Ready to run your ops smarter?
+            <h2 className="text-5xl sm:text-6xl lg:text-7xl font-display font-extrabold text-white mb-6 tracking-tight leading-[1.05]">
+              Ready to run your <br className="hidden sm:block"/> ops smarter?
             </h2>
-            <p className="text-slate-400 text-lg max-w-xl mx-auto mb-10">
+            <p className="text-blue-100/70 text-xl font-light mx-auto mb-12">
               Join teams using PulseDesk AI to ship faster, communicate better, and never miss a deadline again.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Button
                 size="lg"
                 onClick={() => navigate('/register')}
-                iconRight={<ArrowRight size={18} />}
-                className="px-8"
+                iconRight={<ArrowRight size={20} />}
+                className="px-10 py-5 text-lg font-semibold bg-white text-blue-900 hover:bg-slate-100 hover:text-blue-950 border-none shadow-[0_0_30px_rgba(255,255,255,0.3)]"
               >
-                Start for free — no credit card
+                Start for free
               </Button>
               <Button
                 size="lg"
                 variant="ghost"
                 onClick={() => navigate('/dashboard')}
+                className="px-8 py-5 text-lg text-white hover:bg-white/10"
               >
                 View live demo →
               </Button>
@@ -67,7 +69,7 @@ export const LandingFooter: React.FC = () => {
         <p className="text-slate-500 text-sm text-center">
           Built by <a href="https://github.com/AnasCoding1986" className="text-blue-400 hover:text-blue-300 transition-colors">Azizul Rabby</a> · A MERN SaaS portfolio showcase
         </p>
-        <div className="flex items-center gap-6 text-sm text-slate-500">
+        <div className="flex items-center gap-6 text-sm text-slate-500 font-medium">
           {['Privacy', 'Terms', 'GitHub'].map((l) => (
             <a key={l} href="#" className="hover:text-white transition-colors">{l}</a>
           ))}

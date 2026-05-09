@@ -21,12 +21,13 @@ export const FAQSection: React.FC = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-12"
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          className="text-center mb-16"
         >
-          <span className="inline-block text-xs font-semibold text-blue-400 tracking-widest uppercase mb-4 px-3 py-1.5 glass border border-blue-500/20 rounded-full">
+          <span className="inline-block text-xs font-semibold text-blue-400 tracking-widest uppercase mb-6 px-4 py-2 glass-premium border border-blue-500/20 rounded-full shadow-[0_0_20px_rgba(59,130,246,0.15)]">
             FAQ
           </span>
-          <h2 className="text-4xl font-display font-bold gradient-text mb-4">Questions answered</h2>
+          <h2 className="text-5xl sm:text-6xl font-display font-extrabold gradient-text mb-4 tracking-tight">Questions answered</h2>
         </motion.div>
 
         <div className="space-y-3">
@@ -36,18 +37,18 @@ export const FAQSection: React.FC = () => {
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.06 }}
-              className="glass border border-white/[0.08] rounded-2xl overflow-hidden"
+              transition={{ delay: i * 0.08, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+              className="glass-premium border border-white/[0.08] rounded-2xl overflow-hidden hover:border-white/10 transition-colors"
             >
               <button
-                className="w-full px-6 py-5 flex items-center justify-between gap-4 text-left hover:bg-white/[0.02] transition-colors"
+                className="w-full px-6 py-6 flex items-center justify-between gap-4 text-left hover:bg-white/[0.02] transition-colors"
                 onClick={() => setOpen(open === i ? null : i)}
               >
-                <span className="text-sm font-medium text-white">{faq.q}</span>
+                <span className="text-base font-semibold text-white tracking-tight">{faq.q}</span>
                 <motion.div
                   animate={{ rotate: open === i ? 180 : 0 }}
-                  transition={{ duration: 0.2 }}
-                  className="flex-shrink-0 text-slate-500"
+                  transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                  className="flex-shrink-0 w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-slate-400 border border-white/5"
                 >
                   <ChevronDown size={16} />
                 </motion.div>
@@ -58,9 +59,9 @@ export const FAQSection: React.FC = () => {
                     initial={{ height: 0, opacity: 0 }}
                     animate={{ height: 'auto', opacity: 1 }}
                     exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.3, ease: 'easeInOut' }}
+                    transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
                   >
-                    <div className="px-6 pb-5 text-sm text-slate-400 leading-relaxed border-t border-white/[0.06] pt-4">
+                    <div className="px-6 pb-6 text-base text-slate-400 leading-relaxed font-light border-t border-white/[0.06] pt-5">
                       {faq.a}
                     </div>
                   </motion.div>
