@@ -16,7 +16,7 @@ import {
 import { sortableKeyboardCoordinates, arrayMove } from '@dnd-kit/sortable';
 import { Search, SlidersHorizontal, ChevronDown } from 'lucide-react';
 import type { Task, User, Project } from '../../types';
-import { KanbanColumn, COLUMNS, type ColumnId } from './KanbanColumn';
+import { KanbanColumn, type ColumnId } from './KanbanColumn';
 import { TaskCardOverlay } from './TaskCard';
 import { TaskDetailModal } from './TaskDetailModal';
 import { mockProjects, mockTeam, mockClients } from '../../data/mockData';

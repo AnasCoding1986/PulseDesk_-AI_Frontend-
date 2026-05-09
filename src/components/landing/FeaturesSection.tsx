@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import {
   BarChart3, Brain, Users2, FileText, Kanban,
-  TrendingUp, Bell, Globe, ShieldCheck, Zap
+  Bell, Globe, ShieldCheck, Zap
 } from 'lucide-react';
 
 const features = [
@@ -89,7 +89,7 @@ const features = [
   },
 ];
 
-const fadeUp = {
+const fadeUp: any = {
   hidden: { opacity: 0, y: 24 },
   visible: (i: number) => ({ opacity: 1, y: 0, transition: { delay: i * 0.08, duration: 0.5, ease: 'easeOut' } }),
 };

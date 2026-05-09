@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import {
   Globe, CheckCircle2, Clock, Circle, AlertTriangle,
   Download, FileText, ExternalLink, ChevronDown, ChevronUp,
-  MessageSquare, Calendar, DollarSign, Shield, Send, Star,
+  Calendar, DollarSign, Send, Star,
 } from 'lucide-react';
 import { TopBar } from '../../components/layout/TopBar';
 import { Button } from '../../components/ui/Button';

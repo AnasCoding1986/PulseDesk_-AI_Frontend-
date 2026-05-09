@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import {
   AreaChart, Area, XAxis, YAxis, Tooltip, ResponsiveContainer,
-  BarChart, Bar, PieChart, Pie, Cell, Legend
+  BarChart, Bar, PieChart, Pie, Cell
 } from 'recharts';
 import { TopBar } from '../../components/layout/TopBar';
 import { mockRevenueData, mockWorkloadData, mockProjects, mockClients } from '../../data/mockData';
@@ -72,7 +72,7 @@ const AnalyticsPage: React.FC = () => {
             <h3 className="text-sm font-semibold text-white mb-4">Project Status</h3>
             <ResponsiveContainer width="100%" height={200}>
               <PieChart>
-                <Pie data={statusDist} cx="50%" cy="45%" outerRadius={70} dataKey="value" label={({ name, percent }) => `${name} ${(percent * 100).toFixed(0)}%`} labelLine={false}>
+                <Pie data={statusDist} cx="50%" cy="45%" outerRadius={70} dataKey="value" label={({ name, percent }) => `${name} ${((percent || 0) * 100).toFixed(0)}%`} labelLine={false}>
                   {statusDist.map((_, i) => <Cell key={i} fill={PIE_COLORS[i % PIE_COLORS.length]} />)}
                 </Pie>
                 <Tooltip contentStyle={{ background: '#0F172A', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 12, fontSize: 11 }} />
@@ -88,7 +88,7 @@ const AnalyticsPage: React.FC = () => {
               <BarChart data={clientRevenue}>
                 <XAxis dataKey="name" tick={{ fill: '#475569', fontSize: 9 }} axisLine={false} tickLine={false} />
                 <YAxis hide />
-                <Tooltip contentStyle={{ background: '#0F172A', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 12, fontSize: 11 }} formatter={(v: number) => [`$${v.toLocaleString()}`, 'Revenue']} />
+                <Tooltip contentStyle={{ background: '#0F172A', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 12, fontSize: 11 }} formatter={(v: any) => [`$${v.toLocaleString()}`, 'Revenue']} />
                 <Bar dataKey="value" name="Revenue" radius={[6, 6, 0, 0]} barSize={28}>
                   {clientRevenue.map((_, i) => <Cell key={i} fill={PIE_COLORS[i % PIE_COLORS.length]} fillOpacity={0.75} />)}
                 </Bar>

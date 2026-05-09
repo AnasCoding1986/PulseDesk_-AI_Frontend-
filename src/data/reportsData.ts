@@ -1,4 +1,3 @@
-import type { Project, User } from '../types';
 
 export type ReportStatus = 'draft' | 'generated' | 'shared' | 'exported' | 'archived';
 export type ReportType = 'monthly' | 'weekly' | 'client' | 'performance' | 'quarterly';

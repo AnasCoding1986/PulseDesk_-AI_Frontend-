@@ -1,7 +1,7 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
-  Sparkles, Plus, FileText, Send, Clock, 
+  Sparkles, FileText, Clock, 
   Download, Share2, ChevronRight, CheckCircle2,
   AlertTriangle, ArrowUpRight, Zap, ListChecks,
   Calendar, Building2, Target, History, RefreshCcw, Circle
@@ -10,7 +10,7 @@ import { TopBar } from '../../components/layout/TopBar';
 import { Button } from '../../components/ui/Button';
 import { Badge } from '../../components/ui/Badge';
 import { mockReportHistory, mockGeneratedReport, type ReportSummary, type GeneratedReport } from '../../data/reportsData';
-import { mockProjects, mockClients } from '../../data/mockData';
+import { mockProjects } from '../../data/mockData';
 
 // ─── Constants ────────────────────────────────────────────────
 const REPORT_TYPES = [
@@ -305,7 +305,7 @@ const ReportsPage: React.FC = () => {
 
                   <div className="w-full max-w-sm space-y-2 h-20 overflow-hidden">
                     <AnimatePresence>
-                      {genLogs.slice(-3).map((log, i) => (
+                      {genLogs.slice(-3).map((log) => (
                         <motion.div
                           key={log}
                           initial={{ opacity: 0, y: 10 }}

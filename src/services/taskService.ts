@@ -1,5 +1,5 @@
 import api from './api';
-import { Task } from '../types';
+import type { Task } from '../types';
 import { mockTasks } from '../data/mockData';
 
 export const taskService = {
