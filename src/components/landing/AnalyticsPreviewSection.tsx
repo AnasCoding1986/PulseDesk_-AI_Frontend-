@@ -44,15 +44,15 @@ export const AnalyticsPreviewSection: React.FC = () => {
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           >
-            <span className="inline-block text-xs font-semibold text-blue-400 tracking-widest uppercase mb-4 px-3 py-1.5 glass border border-blue-500/20 rounded-full">
+            <span className="inline-block text-xs font-semibold text-blue-400 tracking-widest uppercase mb-6 px-4 py-2 glass-premium border border-blue-500/20 rounded-full shadow-[0_0_20px_rgba(59,130,246,0.15)]">
               Analytics
             </span>
-            <h2 className="text-4xl sm:text-5xl font-display font-bold gradient-text mb-6 leading-tight">
+            <h2 className="text-5xl sm:text-6xl font-display font-extrabold gradient-text mb-6 leading-[1.1] tracking-tight">
               Every metric that matters — at a glance
             </h2>
-            <p className="text-slate-400 text-lg leading-relaxed mb-8">
+            <p className="text-slate-400 text-xl font-light leading-relaxed mb-10 max-w-lg">
               Revenue trends, project health scores, team velocity, and client ROI — all visualized in real-time dashboards that make decisions obvious.
             </p>
             <div className="space-y-4">
@@ -74,11 +74,13 @@ export const AnalyticsPreviewSection: React.FC = () => {
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.15 }}
-            className="space-y-4"
+            transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+            className="space-y-6 relative"
           >
+            <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/10 to-purple-500/10 blur-3xl -z-10 rounded-full" />
+            
             {/* Revenue chart card */}
-            <div className="glass border border-white/[0.08] rounded-2xl p-5">
+            <div className="glass-premium border border-white/[0.08] rounded-3xl p-8">
               <div className="flex items-center justify-between mb-4">
                 <div>
                   <p className="text-xs text-slate-500 mb-1">Total Revenue</p>
@@ -112,7 +114,7 @@ export const AnalyticsPreviewSection: React.FC = () => {
             </div>
 
             {/* Project health card */}
-            <div className="glass border border-white/[0.08] rounded-2xl p-5">
+            <div className="glass-premium border border-white/[0.08] rounded-3xl p-8">
               <p className="text-xs text-slate-500 mb-4">Project Health Scores</p>
               <ResponsiveContainer width="100%" height={80}>
                 <BarChart data={healthData} layout="vertical" margin={{ top: 0, right: 8, bottom: 0, left: 0 }}>

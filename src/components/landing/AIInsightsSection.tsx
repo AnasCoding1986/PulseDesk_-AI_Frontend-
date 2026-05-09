@@ -60,17 +60,19 @@ export const AIInsightsSection: React.FC = () => {
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            className="space-y-3"
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="space-y-4 relative"
           >
+            <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-transparent blur-3xl -z-10 rounded-full" />
+            
             {insights.map((insight, i) => (
               <motion.div
                 key={insight.title}
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.1, duration: 0.5 }}
-                className="glass border border-white/[0.08] rounded-2xl p-5 hover:border-white/20 transition-all duration-300 cursor-default group"
+                transition={{ delay: i * 0.1, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                className="glass-premium border border-white/[0.08] rounded-3xl p-6 hover:border-white/20 transition-all duration-300 cursor-default group"
               >
                 <div className="flex items-start gap-4">
                   <div className={`w-10 h-10 rounded-xl ${insight.iconBg} border flex items-center justify-center flex-shrink-0 ${insight.iconColor} group-hover:scale-110 transition-transform`}>
@@ -96,18 +98,18 @@ export const AIInsightsSection: React.FC = () => {
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.15 }}
+            transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
           >
-            <div className="w-14 h-14 rounded-2xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center mb-6">
-              <Brain size={28} className="text-purple-400" />
+            <div className="w-16 h-16 rounded-[20px] bg-purple-500/10 border border-purple-500/20 flex items-center justify-center mb-8 shadow-[0_0_30px_rgba(168,85,247,0.15)]">
+              <Brain size={32} className="text-purple-400" />
             </div>
-            <span className="inline-block text-xs font-semibold text-purple-400 tracking-widest uppercase mb-4">
+            <span className="inline-block text-xs font-semibold text-purple-400 tracking-widest uppercase mb-6 px-4 py-2 glass-premium border border-purple-500/20 rounded-full">
               AI Insights Engine
             </span>
-            <h2 className="text-4xl sm:text-5xl font-display font-bold gradient-text mb-6 leading-tight">
+            <h2 className="text-5xl sm:text-6xl font-display font-extrabold gradient-text mb-6 leading-[1.1] tracking-tight">
               Your AI co-pilot for operations
             </h2>
-            <p className="text-slate-400 text-lg leading-relaxed mb-8">
+            <p className="text-slate-400 text-xl font-light leading-relaxed mb-10 max-w-lg">
               PulseDesk AI continuously monitors your workspace and surfaces what matters — risks before they become problems, opportunities before they slip away.
             </p>
             <div className="grid grid-cols-2 gap-4">
@@ -117,9 +119,9 @@ export const AIInsightsSection: React.FC = () => {
                 { stat: '92%', label: 'insight accuracy' },
                 { stat: '40+', label: 'signals monitored' },
               ].map((item) => (
-                <div key={item.label} className="glass border border-white/[0.06] rounded-xl p-4">
-                  <div className="text-2xl font-bold gradient-text-blue mb-1">{item.stat}</div>
-                  <div className="text-xs text-slate-400">{item.label}</div>
+                <div key={item.label} className="glass-premium border border-white/[0.08] rounded-2xl p-6">
+                  <div className="text-3xl font-display font-extrabold gradient-text-blue mb-2">{item.stat}</div>
+                  <div className="text-sm text-slate-400 font-medium">{item.label}</div>
                 </div>
               ))}
             </div>
