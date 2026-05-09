@@ -117,7 +117,7 @@ export const HeroSection: React.FC = () => {
       <div className="orb w-[500px] h-[500px] bg-purple-600/10 -top-20 -right-40" />
       <div className="dot-grid absolute inset-0 opacity-40" />
 
-      <div className="relative z-10 max-w-5xl mx-auto text-center">
+      <div className="relative z-10 w-full max-w-5xl mx-auto text-center">
         {/* Announcement badge */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}

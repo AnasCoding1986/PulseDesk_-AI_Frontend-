@@ -8,7 +8,7 @@ export const CTASection: React.FC = () => {
   const navigate = useNavigate();
   return (
     <section className="py-28 px-4">
-      <div className="max-w-4xl mx-auto">
+      <div className="container-strict max-w-4xl">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -57,7 +57,7 @@ export const CTASection: React.FC = () => {
 export const LandingFooter: React.FC = () => {
   return (
     <footer className="border-t border-white/[0.06] py-12 px-4">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+      <div className="container-strict flex flex-col md:flex-row items-center justify-between gap-6">
         <div className="flex items-center gap-2.5">
           <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
             <Zap size={14} className="text-white" />

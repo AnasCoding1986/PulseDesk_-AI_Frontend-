@@ -74,7 +74,7 @@ export const PricingSection: React.FC = () => {
 
   return (
     <section id="pricing" className="py-28 px-4">
-      <div className="max-w-6xl mx-auto">
+      <div className="container-strict">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

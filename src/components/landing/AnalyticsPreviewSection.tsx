@@ -37,7 +37,7 @@ export const AnalyticsPreviewSection: React.FC = () => {
   return (
     <section id="analytics" className="py-28 px-4 relative overflow-hidden">
       <div className="orb w-[400px] h-[400px] bg-blue-600/8 top-1/2 -left-40 -translate-y-1/2" />
-      <div className="max-w-7xl mx-auto">
+      <div className="container-strict">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left: text */}
           <motion.div

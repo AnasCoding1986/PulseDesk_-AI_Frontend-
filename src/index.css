@@ -170,12 +170,64 @@ body {
   background-size: 200% 100%;
   animation: shimmer 2s infinite;
 }
-.animate-slide-up { animation: slide-up 0.6s ease-out forwards; }
+.animate-slide-up { animation: slide-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
 .animate-pulse-ring { animation: pulse-ring 2s ease-out infinite; }
 .animate-gradient {
   background-size: 300% 300%;
   animation: gradient-shift 6s ease infinite;
 }
 
+/* ─── Premium SaaS Components ────────────────────────────────────────── */
+
+/* A more refined, multi-layered glass effect */
+.glass-premium {
+  background: linear-gradient(180deg, rgba(30, 41, 59, 0.4) 0%, rgba(15, 23, 42, 0.6) 100%);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 24px -1px rgba(0, 0, 0, 0.2);
+}
+
+.glass-premium:hover {
+  border-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 32px -1px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.05);
+}
+
+/* Spotlight card wrapper */
+.spotlight-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Beautiful cinematic glow for the hero */
+.cinematic-glow {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  top: -50vh;
+  left: 50%;
+  transform: translateX(-50%);
+  background: radial-gradient(circle at 50% 50%, rgba(139, 92, 246, 0.15) 0%, rgba(59, 130, 246, 0.05) 30%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ─── Layout Strictness ──────────────────────────────────────────────── */
+.container-strict {
+  width: 100%;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+@media (min-width: 1024px) {
+  .container-strict {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
 /* ─── Selection ──────────────────────────────────────────────────────── */
-::selection { background: rgba(59, 130, 246, 0.3); color: #F8FAFC; }
+::selection { background: rgba(139, 92, 246, 0.3); color: #F8FAFC; }

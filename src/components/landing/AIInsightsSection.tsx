@@ -53,7 +53,7 @@ export const AIInsightsSection: React.FC = () => {
   return (
     <section className="py-28 px-4 relative">
       <div className="orb w-[500px] h-[500px] bg-purple-600/8 top-1/2 right-0 -translate-y-1/2 -translate-x-1/2" />
-      <div className="max-w-7xl mx-auto">
+      <div className="container-strict">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Insight cards */}
           <motion.div
